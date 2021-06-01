@@ -21,12 +21,4 @@ System:
 
 
 <img src="https://github.com/karthis668/ionic5-Angular-EcommerceApp/blob/base/sample-images/Screenshot_2021-06-01-23-44-06-229_com.myapp.app.jpg" alt="" style="object-fit: contain;width: 360px;height: 500px;">
-<img src="https://github.com/karthis668/ionic5-Angular-EcommerceApp/blob/base/sample-images/Screenshot_2021-06-01-23-44-06-229_com.myapp.app.jpg" alt="" style="object-fit: contain;width: 360px;height: 500px;">
-<style>
-  img {
-    object-fit: contain !important;
-    width: 350px !important;
-    height: 400px !important;
-}
-</style>
 

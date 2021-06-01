@@ -1,0 +1,6 @@
+{
+	"appId": "com.myapp.app",
+	"appName": "EcommerceApp",
+	"webDir": "www",
+	"bundledWebRuntime": false
+}

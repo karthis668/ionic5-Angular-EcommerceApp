@@ -1,0 +1,19 @@
+<ion-toolbar>
+  <ion-buttons slot="start">
+   <ng-content></ng-content>
+     <ion-menu-button></ion-menu-button>
+  </ion-buttons>
+
+  <ion-buttons slot="end">
+   <span style="margin-right: -10px;">
+    <ion-button (click)="gotocart()">
+      <ion-icon slot="icon-only" name='cart'></ion-icon>
+    </ion-button>
+    <!-- <ion-badge style="background-color: #ff2d37;">0</ion-badge> -->
+    <ion-badge slot="end">{{cartcount}}</ion-badge>
+  </span>
+</ion-buttons>
+  <ion-title class="ion-no-padding"  >
+   <img class="mainlogo" src="../assets/logo.jpg" height="50" (click)="gotoHome()" >
+  </ion-title>
+</ion-toolbar>

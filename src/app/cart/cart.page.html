@@ -1,0 +1,88 @@
+  <ion-header>
+    <app-header>
+      <ion-back-button [text]="" icon="arrow-back"></ion-back-button>
+    </app-header>
+  </ion-header>
+
+<ion-content>
+  <ion-header class="prohead">
+    <ion-title>
+      <ion-label>Cart</ion-label>
+    </ion-title>
+   </ion-header>
+  <div *ngIf="products == 0">
+    <h3 class="ion-text-center">No Products in the cart</h3>
+  </div>
+   <ion-list lines="full">
+    <ion-item *ngFor="let p of products;let i = index">
+      <ion-thumbnail slot="start">
+        <ion-img [src]="p.image"></ion-img>
+      </ion-thumbnail>
+      <ion-label class="ion-text-wrap">
+        {{ p.title }}<br>
+        <b>{{ p.price | currency:'INR' }}</b>
+        <p>{{ p.stock }} left</p>
+        <!-- <div [hidden]="!p.expanded">
+          {{ p.description }}
+        </div> -->
+      </ion-label>
+      <!-- <ion-row>
+        <ion-col size="4">
+          <ion-button>ADDCART</ion-button>
+        </ion-col>
+      </ion-row> -->
+      <ion-row slot="end" class="ion-no-padding ion-align-items-center" style="display: inline-grid;">
+        <ion-col size="3">
+          <ion-button fill="clear" (click)="addproduct(p.id)">
+            <ion-icon name="add" slot="icon-only"></ion-icon>
+          </ion-button>
+        </ion-col>
+
+        <ion-col size="2" style="position: relative;
+        left: 20px;">
+          {{ p.pcount }}
+        </ion-col>
+
+        <ion-col size="3">
+          <ion-button  fill="clear" (click)="decreaseitem(p.id)" [disabled]="p.pcount == 0">
+            <ion-icon name="remove" slot="icon-only"></ion-icon>
+          </ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-item>
+  </ion-list>
+
+  <ion-item class="cartorder itemsss" lines="none" *ngIf="products != 0">
+    <table width="100%">
+      <tr>
+        <td>SubTotal</td>
+        <td></td>
+        <td class="amt textright">{{total | currency:'INR':'symbol-narrow'}}</td>
+      </tr>
+
+            <tr>
+                <td>Shipping</td>
+                <td></td>
+                <td class="amt textright">{{40 | currency:'INR':'symbol-narrow' }}</td>
+            </tr>
+
+      <tr>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+      </tr>
+      <tr>
+        <td><b style="color:#000;">Grand Total</b></td>
+        <td></td>
+        <td class="amt textright"><b>{{total + 40 | currency:'INR':'symbol-narrow'}}</b></td>
+      </tr>
+    </table>
+  </ion-item>
+
+</ion-content>
+
+<ion-footer *ngIf="products != 0">
+  <ion-button expand="full" (click)="gotocheckout()">
+    CHECKOUT
+  </ion-button>
+</ion-footer>

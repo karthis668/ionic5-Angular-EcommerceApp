@@ -1,0 +1,87 @@
+<ion-header>
+  <app-header>
+    <ion-back-button [text]="" icon="arrow-back"></ion-back-button>
+  </app-header>
+</ion-header>
+
+<ion-content>
+  <ion-header class="prohead">
+   <ion-title>
+     <ion-label>{{address}}</ion-label>
+   </ion-title>
+  </ion-header>
+
+  <div *ngIf="!shipping && !billing && !selectpayment">
+    <form [formGroup]="billingForm" #myForm="ngForm" (ngSubmit)="billingcontinue()">
+      <ion-item>
+        <ion-label position="stacked">First Name</ion-label>
+        <ion-input type="text" class="form-control" formControlName="firstName"></ion-input>
+      </ion-item>
+       <ion-item>
+        <ion-label position="stacked">Last Name</ion-label>
+        <ion-input type="text" class="form-control" formControlName="lastName"></ion-input>
+       </ion-item>
+       <ion-item>
+        <ion-label position="stacked">Phone</ion-label>
+        <ion-input type="number" class="form-control" formControlName="phone"></ion-input>
+       </ion-item>
+       <ion-item>
+        <ion-label position="stacked">Address</ion-label>
+        <ion-input type="text" class="form-control" formControlName="address"></ion-input>
+       </ion-item>
+    </form>
+  </div>
+
+  <div *ngIf="billing && shipping && !selectpayment">
+    <form [formGroup]="shippingForm" #myForm="ngForm" (ngSubmit)="shippingContinue()">
+      <ion-item>
+        <ion-label position="stacked">First Name</ion-label>
+        <ion-input type="text" class="form-control" formControlName="firstName"></ion-input>
+      </ion-item>
+       <ion-item>
+        <ion-label position="stacked">Last Name</ion-label>
+        <ion-input type="text" class="form-control" formControlName="lastName"></ion-input>
+       </ion-item>
+       <ion-item>
+        <ion-label position="stacked">Phone</ion-label>
+        <ion-input type="number" class="form-control" formControlName="phone"></ion-input>
+       </ion-item>
+       <ion-item>
+        <ion-label position="stacked">Address</ion-label>
+        <ion-input type="text" class="form-control" formControlName="address"></ion-input>
+       </ion-item>
+    </form>
+  </div>
+
+  <div *ngIf="!shipping && !billing && selectpayment">
+    <ion-list>
+      <ion-radio-group value="">
+        <ion-item>
+          <ion-label>Cash on Delivery</ion-label>
+          <ion-radio value="cod"></ion-radio>
+        </ion-item>
+      </ion-radio-group>
+    </ion-list>
+  </div>
+
+</ion-content>
+
+<ion-footer *ngIf="!shipping && !billing && !selectpayment">
+  <ion-button [disabled]="!billingForm.valid" expand="full" (click)="billingcontinue()">
+    Continue
+  </ion-button>
+</ion-footer>
+
+<ion-footer  *ngIf="billing && shipping && !selectpayment">
+  <ion-button [disabled]="!shippingForm.valid" expand="full" (click)="shippingContinue()">
+    Continue
+  </ion-button>
+</ion-footer>
+
+<ion-footer  *ngIf="!shipping && !billing && selectpayment">
+  <ion-button  expand="full" (click)="ordersucces()">
+    PLACE ORDER NOW
+  </ion-button>
+</ion-footer>
+
+

@@ -18,3 +18,5 @@ System:
    NodeJS : v12.22.1 (/home/maya/.nvm/versions/node/v12.22.1/bin/node)
    npm    : 6.14.12
    OS     : Linux 5.8
+
+https://github.com/karthis668/ionic5-Angular-EcommerceApp/blob/base/sample-images/Screenshot_2021-06-01-23-44-06-229_com.myapp.app.jpg
